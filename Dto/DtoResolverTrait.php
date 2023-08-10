@@ -173,6 +173,9 @@ trait DtoResolverTrait
         $normalizedData = [];
 
         foreach ($data as $propertyName => $value) {
+            if (!is_string($propertyName)) {
+                continue;
+            }
             $normalizedPropertyName = $this->normalizeDefinedKey($propertyName);
             $normalizedData[$normalizedPropertyName] = $value;
         }
